@@ -1,0 +1,10 @@
+.DS_Store
+
+# Xcode
+xcuserdata/
+project.xcworkspace/
+DerivedData/
+UserInterfaceState.xcuserstate
+
+# Cocoapods
+Pods/
