@@ -14,6 +14,13 @@
 		9A7F452E22D11D0900DEB1E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F452D22D11D0900DEB1E9 /* Constants.swift */; };
 		9A7F453222D1256A00DEB1E9 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F453122D1256A00DEB1E9 /* DateExtensions.swift */; };
 		9A7F453422D1266A00DEB1E9 /* ThreadExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F453322D1266A00DEB1E9 /* ThreadExtensions.swift */; };
+		9A7F453822D127FA00DEB1E9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F453622D127FA00DEB1E9 /* FeedTableViewCell.swift */; };
+		9A7F453922D127FA00DEB1E9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7F453722D127FA00DEB1E9 /* FeedTableViewCell.xib */; };
+		9A7F454122D12C9B00DEB1E9 /* FeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F454022D12C9B00DEB1E9 /* FeedTableView.swift */; };
+		9A7F454322D131BD00DEB1E9 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F454222D131BD00DEB1E9 /* CollectionExtensions.swift */; };
+		9A7F454522D132E400DEB1E9 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F454422D132E400DEB1E9 /* NotificationExtensions.swift */; };
+		9A7F454E22D1F87F00DEB1E9 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F454D22D1F87F00DEB1E9 /* ThreadSafeDictionary.swift */; };
+		9A7F455222D2020300DEB1E9 /* RSSParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F455122D2020300DEB1E9 /* RSSParseService.swift */; };
 		9AFE591722D10FF00072B41B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE591622D10FF00072B41B /* AppDelegate.swift */; };
 		9AFE591C22D10FF00072B41B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFE591A22D10FF00072B41B /* Main.storyboard */; };
 		9AFE591E22D10FF10072B41B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AFE591D22D10FF10072B41B /* Assets.xcassets */; };
@@ -28,6 +35,13 @@
 		9A7F452D22D11D0900DEB1E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A7F453122D1256A00DEB1E9 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9A7F453322D1266A00DEB1E9 /* ThreadExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadExtensions.swift; sourceTree = "<group>"; };
+		9A7F453622D127FA00DEB1E9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		9A7F453722D127FA00DEB1E9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		9A7F454022D12C9B00DEB1E9 /* FeedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableView.swift; sourceTree = "<group>"; };
+		9A7F454222D131BD00DEB1E9 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		9A7F454422D132E400DEB1E9 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		9A7F454D22D1F87F00DEB1E9 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
+		9A7F455122D2020300DEB1E9 /* RSSParseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParseService.swift; sourceTree = "<group>"; };
 		9AFE591322D10FF00072B41B /* RunloopAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunloopAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFE591622D10FF00072B41B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AFE591B22D10FF00072B41B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,7 +78,6 @@
 			children = (
 				9A7F452122D119FC00DEB1E9 /* Main */,
 				9A7F452022D119FB00DEB1E9 /* Feed */,
-				9AFE591A22D10FF00072B41B /* Main.storyboard */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -72,6 +85,8 @@
 		9A7F452022D119FB00DEB1E9 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				9A7F453522D127D200DEB1E9 /* Cell */,
+				9A7F454022D12C9B00DEB1E9 /* FeedTableView.swift */,
 				9A7F452522D11A1800DEB1E9 /* FeedViewController.swift */,
 			);
 			path = Feed;
@@ -105,26 +120,56 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9A7F452F22D11F6B00DEB1E9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		9A7F453022D1253100DEB1E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9A7F453122D1256A00DEB1E9 /* DateExtensions.swift */,
+				9A7F454422D132E400DEB1E9 /* NotificationExtensions.swift */,
 				9A7F453322D1266A00DEB1E9 /* ThreadExtensions.swift */,
+				9A7F454222D131BD00DEB1E9 /* CollectionExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9A7F453522D127D200DEB1E9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9A7F453622D127FA00DEB1E9 /* FeedTableViewCell.swift */,
+				9A7F453722D127FA00DEB1E9 /* FeedTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9A7F454C22D1F86A00DEB1E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A7F454D22D1F87F00DEB1E9 /* ThreadSafeDictionary.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9A7F454F22D1FC9A00DEB1E9 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9A7F455022D201F300DEB1E9 /* Services */,
+				9A7F454C22D1F86A00DEB1E9 /* Models */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		9A7F455022D201F300DEB1E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9A7F455122D2020300DEB1E9 /* RSSParseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9AFE590A22D10FF00072B41B = {
 			isa = PBXGroup;
 			children = (
 				9AFE591522D10FF00072B41B /* RunloopAssignment */,
+				9AFE591A22D10FF00072B41B /* Main.storyboard */,
 				9AFE591422D10FF00072B41B /* Products */,
 				3C1FC96E900773E140E2D38E /* Pods */,
 				F84EC3207A20F4CB6F92A946 /* Frameworks */,
@@ -146,7 +191,7 @@
 				9A7F453022D1253100DEB1E9 /* Extensions */,
 				9A7F452C22D11C9B00DEB1E9 /* Resources */,
 				9A7F451C22D1199700DEB1E9 /* Modules */,
-				9A7F452F22D11F6B00DEB1E9 /* Services */,
+				9A7F454F22D1FC9A00DEB1E9 /* Infrastructure */,
 			);
 			path = RunloopAssignment;
 			sourceTree = "<group>";
@@ -220,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AFE592122D10FF10072B41B /* LaunchScreen.storyboard in Resources */,
+				9A7F453922D127FA00DEB1E9 /* FeedTableViewCell.xib in Resources */,
 				9A7F452A22D11BD900DEB1E9 /* Images.xcassets in Resources */,
 				9AFE591E22D10FF10072B41B /* Assets.xcassets in Resources */,
 				9AFE591C22D10FF00072B41B /* Main.storyboard in Resources */,
@@ -275,12 +321,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7F455222D2020300DEB1E9 /* RSSParseService.swift in Sources */,
 				9AFE591722D10FF00072B41B /* AppDelegate.swift in Sources */,
+				9A7F454322D131BD00DEB1E9 /* CollectionExtensions.swift in Sources */,
 				9A7F453222D1256A00DEB1E9 /* DateExtensions.swift in Sources */,
+				9A7F453822D127FA00DEB1E9 /* FeedTableViewCell.swift in Sources */,
+				9A7F454E22D1F87F00DEB1E9 /* ThreadSafeDictionary.swift in Sources */,
 				9A7F452622D11A1800DEB1E9 /* FeedViewController.swift in Sources */,
 				9A7F452422D11A1000DEB1E9 /* MainViewController.swift in Sources */,
 				9A7F452E22D11D0900DEB1E9 /* Constants.swift in Sources */,
+				9A7F454522D132E400DEB1E9 /* NotificationExtensions.swift in Sources */,
 				9A7F453422D1266A00DEB1E9 /* ThreadExtensions.swift in Sources */,
+				9A7F454122D12C9B00DEB1E9 /* FeedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

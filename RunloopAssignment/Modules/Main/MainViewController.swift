@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .feedSelected, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,4 +55,11 @@ class MainViewController: UIViewController {
         lblTime.text = date.toString(format: timeFormat)
     }
     
+    @objc
+    func notificationReceived(_ notification: Notification) {
+        guard let title = notification.userInfo?["title"] as? String else { return }
+        
+        lblSelectedFeedName.text = title
+    }
+
 }

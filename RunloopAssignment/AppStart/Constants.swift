@@ -16,4 +16,5 @@ class Constants {
     static let environmentRSSLink = "http://feeds.reuters.com/reuters/environment"
     
     // Notification Center keys
+    static let feedSelectedNotification = "feedSelectedNotification"
 }

@@ -31,6 +31,9 @@
                                                 <segment title="First"/>
                                                 <segment title="Second"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="valueChanged:" destination="j0h-My-xVQ" eventType="valueChanged" id="aRP-yX-Oze"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,6 +60,10 @@
                         <viewLayoutGuide key="safeArea" id="n2W-I8-88c"/>
                     </view>
                     <navigationItem key="navigationItem" id="sZZ-31-nSF"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="RXG-wi-rba" id="P7t-Uw-cg8"/>
+                        <outlet property="tableView" destination="dtk-Ze-NNV" id="Ni9-EE-eh9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFg-TF-0ft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,26 +96,26 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:40:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UU-Jk-UlT">
-                                <rect key="frame" x="171.5" y="361.5" width="71" height="23.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-A5-ok8">
                                 <rect key="frame" x="185" y="312.5" width="44" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXS-4Q-Pzn">
-                                <rect key="frame" x="207" y="484" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:40:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UU-Jk-UlT">
+                                <rect key="frame" x="171.5" y="361.5" width="71" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiM-V4-BW9">
                                 <rect key="frame" x="150" y="435" width="114.5" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXS-4Q-Pzn">
+                                <rect key="frame" x="15" y="484" width="384" height="0.0"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -124,11 +131,12 @@
                             <constraint firstItem="Ifr-Vv-ivf" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="Fbb-QJ-xbX"/>
                             <constraint firstItem="KLW-A5-ok8" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="Hh1-o4-g9E"/>
                             <constraint firstItem="Wwe-bu-byb" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="Iti-Hg-Fg3"/>
+                            <constraint firstItem="SXS-4Q-Pzn" firstAttribute="leading" secondItem="3X4-jU-v8w" secondAttribute="leading" constant="15" id="Ple-7e-mbR"/>
                             <constraint firstItem="Wwe-bu-byb" firstAttribute="top" secondItem="Ifr-Vv-ivf" secondAttribute="bottom" constant="50" id="UBv-xK-cDT"/>
                             <constraint firstItem="RiM-V4-BW9" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="ZK0-Zm-LgU"/>
                             <constraint firstItem="8UU-Jk-UlT" firstAttribute="top" secondItem="KLW-A5-ok8" secondAttribute="bottom" constant="25" id="h9W-pL-gAB"/>
-                            <constraint firstItem="SXS-4Q-Pzn" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="sBo-tk-6oL"/>
                             <constraint firstItem="8UU-Jk-UlT" firstAttribute="centerX" secondItem="3X4-jU-v8w" secondAttribute="centerX" id="t8s-uf-5Aw"/>
+                            <constraint firstAttribute="trailing" secondItem="SXS-4Q-Pzn" secondAttribute="trailing" constant="15" id="vQt-Zw-ldy"/>
                             <constraint firstItem="RiM-V4-BW9" firstAttribute="top" secondItem="8UU-Jk-UlT" secondAttribute="bottom" constant="50" id="xl3-z7-czE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cTl-6d-x9s"/>
