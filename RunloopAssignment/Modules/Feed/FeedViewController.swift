@@ -19,6 +19,8 @@ class FeedViewController: UIViewController {
     private let firstSegmentSources = [Constants.businessRSSLink]
     private let secondSegmentSources = [Constants.entertainmentRSSLink, Constants.environmentRSSLink]
     
+    private let refreshInterval: TimeInterval = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,7 @@ class FeedViewController: UIViewController {
     
     private func setupTableView() {
         tableView.register(UINib(nibName: FeedTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: FeedTableViewCell.reuseIdentifier)
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -51,7 +53,7 @@ class FeedViewController: UIViewController {
         
         rssService = nil
     }
-
+    
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
         startLoadTask()
     }
@@ -61,7 +63,7 @@ class FeedViewController: UIViewController {
         tableView.reloadData()
         
         let urls = segmentedControl.selectedSegmentIndex == 0 ? firstSegmentSources : secondSegmentSources
-        rssService?.subscribe(urls: urls, interval: 5, completitionHandler: { [weak self] feed in
+        rssService?.subscribe(urls: urls, interval: refreshInterval, completitionHandler: { [weak self] feed in
             
             DispatchQueue.global().async {
                 self?.items = feed.convert()

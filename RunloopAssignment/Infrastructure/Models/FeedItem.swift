@@ -12,5 +12,4 @@ struct FeedItem: Equatable {
     let title: String?
     let publicationDate: String?
     let description: String?
-    let link: String?
 }

@@ -15,10 +15,7 @@ class RSSParseService {
     private var feedDictionary = ThreadSafeDictionary<Int, [RSSFeedItem]>()
     private var activeTasks: [Int] = [] {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                let isEmpty = self?.activeTasks.isEmpty ?? true
-                UIApplication.shared.isNetworkActivityIndicatorVisible = !isEmpty
-            }
+            changeActivityIndicatorState()
         }
     }
     
@@ -59,6 +56,7 @@ class RSSParseService {
                     }
                 }
                 
+                // removing activity indicator on complete
                 self?.activeTasks.removeAll(where: { $0 == index })
             }
         })
@@ -73,6 +71,13 @@ class RSSParseService {
     
     private func invalidateTimers() {
         timers.forEach({ $0.invalidate() })
+    }
+    
+    private func changeActivityIndicatorState() {
+        DispatchQueue.main.async { [weak self] in
+            let isEmpty = self?.activeTasks.isEmpty ?? true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = !isEmpty
+        }
     }
     
     deinit {

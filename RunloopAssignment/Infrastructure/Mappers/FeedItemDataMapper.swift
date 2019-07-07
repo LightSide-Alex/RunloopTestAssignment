@@ -13,8 +13,7 @@ extension RSSFeedItem {
     func convert() -> FeedItem {
         return FeedItem(title: self.title,
                         publicationDate: self.pubDate?.toString(format: "E, d MMM yyyy HH:mm:ss"),
-                        description: self.description?.stripOutHtml(),
-                        link: self.link)
+                        description: self.description?.stripOutHtml())
     }
 }
 
