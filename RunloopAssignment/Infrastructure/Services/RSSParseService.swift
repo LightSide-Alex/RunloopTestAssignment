@@ -11,7 +11,7 @@ import FeedKit
 
 class RSSParseService {
     
-    private var subscriptions: [Timer] = []
+    private var timers: [Timer] = []
     private var feedDictionary = ThreadSafeDictionary<Int, [RSSFeedItem]>()
     private var activeTasks: [Int] = [] {
         didSet {
@@ -25,27 +25,30 @@ class RSSParseService {
     func subscribe(urls: [String], interval: TimeInterval, completitionHandler: @escaping ([RSSFeedItem]) -> Void) {
         invalidateTimers()
         feedDictionary.removeAll()
+        timers.removeAll()
         
         // Creating tasks for each source
         for (index, value) in urls.enumerated() {
-            let timer = createTask(index: index, url: value, interval: interval, completitionHandler: completitionHandler)
+            let timer = self.createTask(index: index, url: value, interval: interval, completitionHandler: completitionHandler)
+            
             RunLoop.current.add(timer, forMode: .common)
+            timer.tolerance = 0.1
             timer.fire()
             
-            subscriptions.append(timer)
+            self.timers.append(timer)
         }
     }
     
     private func createTask(index: Int, url: String, interval: TimeInterval, completitionHandler: @escaping ([RSSFeedItem]) -> Void) -> Timer {
         
-        return Timer(timeInterval: interval, repeats: true, block: { [weak self] timer in
+        return Timer(timeInterval: interval, repeats: true, block: { [weak self] _ in
             self?.activeTasks.append(index)
             
             let feedURL = URL(string: url)!
             let parser = FeedParser(URL: feedURL)
             
             parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-
+                
                 if let items = result.rssFeed?.items {
                     self?.feedDictionary.insert(value: items, forKey: index)
                 }
@@ -69,7 +72,7 @@ class RSSParseService {
     }
     
     private func invalidateTimers() {
-        subscriptions.forEach({ $0.invalidate() })
+        timers.forEach({ $0.invalidate() })
     }
     
     deinit {

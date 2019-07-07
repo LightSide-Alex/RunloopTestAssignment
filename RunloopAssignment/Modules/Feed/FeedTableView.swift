@@ -11,8 +11,11 @@ import UIKit
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sendEvent(with: items[indexPath.row].title ?? "No title")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        let details = self.storyboard!.instantiateViewController(withIdentifier: "FeedDetailViewController") as! FeedDetailViewController
+        details.item = items[indexPath.row]
+        
+        self.navigationController!.pushViewController(details, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,12 +27,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.item = items[indexPath.row]
         
         return cell
-    }
-    
-    private func sendEvent(with title: String) {
-        let userInfo = ["title" : title]
-        
-        NotificationCenter.default.post(Notification(name: .feedSelected, object: nil, userInfo: userInfo))
     }
     
 }

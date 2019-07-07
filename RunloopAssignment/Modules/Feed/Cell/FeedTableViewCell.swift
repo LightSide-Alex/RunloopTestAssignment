@@ -25,6 +25,14 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        lblTitle.text = ""
+        lblDate.text = ""
+        lblDescription.text = ""
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

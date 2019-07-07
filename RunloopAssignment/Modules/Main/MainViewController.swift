@@ -62,4 +62,7 @@ class MainViewController: UIViewController {
         lblSelectedFeedName.text = title
     }
 
+    deinit {
+        print("FUCK!")
+    }
 }
