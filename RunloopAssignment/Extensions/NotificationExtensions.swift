@@ -9,5 +9,7 @@
 import Foundation
 
 extension Notification.Name {
+    
+    /// Shorthand access to specified notification name
     public static let feedSelected = Notification.Name(rawValue: Constants.feedSelectedNotification)
 }

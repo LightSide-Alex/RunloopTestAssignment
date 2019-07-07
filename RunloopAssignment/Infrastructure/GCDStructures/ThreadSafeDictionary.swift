@@ -28,4 +28,10 @@ class ThreadSafeDictionary<Key: Hashable, Value> {
         }
     }
     
+    func removeAll() {
+        isolationQueue.async(flags: .barrier) {
+            self.internalDictionary.removeAll()
+        }
+    }
+    
 }

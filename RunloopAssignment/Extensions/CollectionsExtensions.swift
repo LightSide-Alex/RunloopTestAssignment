@@ -1,8 +1,8 @@
 //
-//  CollectionExtensions.swift
+//  CollectionsExtensions.swift
 //  RunloopAssignment
 //
-//  Created by LightSide on 7/6/19.
+//  Created by LightSide on 7/7/19.
 //  Copyright © 2019 LightSide. All rights reserved.
 //
 

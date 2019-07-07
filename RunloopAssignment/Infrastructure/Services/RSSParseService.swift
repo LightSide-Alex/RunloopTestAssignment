@@ -13,10 +13,20 @@ class RSSParseService {
     
     private var subscriptions: [Timer] = []
     private var feedDictionary = ThreadSafeDictionary<Int, [RSSFeedItem]>()
+    private var activeTasks: [Int] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                let isEmpty = self?.activeTasks.isEmpty ?? true
+                UIApplication.shared.isNetworkActivityIndicatorVisible = !isEmpty
+            }
+        }
+    }
     
     func subscribe(urls: [String], interval: TimeInterval, completitionHandler: @escaping ([RSSFeedItem]) -> Void) {
         invalidateTimers()
+        feedDictionary.removeAll()
         
+        // Creating tasks for each source
         for (index, value) in urls.enumerated() {
             let timer = createTask(index: index, url: value, interval: interval, completitionHandler: completitionHandler)
             RunLoop.current.add(timer, forMode: .common)
@@ -29,11 +39,13 @@ class RSSParseService {
     private func createTask(index: Int, url: String, interval: TimeInterval, completitionHandler: @escaping ([RSSFeedItem]) -> Void) -> Timer {
         
         return Timer(timeInterval: interval, repeats: true, block: { [weak self] timer in
+            self?.activeTasks.append(index)
+            
             let feedURL = URL(string: url)!
             let parser = FeedParser(URL: feedURL)
             
             parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                
+
                 if let items = result.rssFeed?.items {
                     self?.feedDictionary.insert(value: items, forKey: index)
                 }
@@ -44,6 +56,7 @@ class RSSParseService {
                     }
                 }
                 
+                self?.activeTasks.removeAll(where: { $0 == index })
             }
         })
     }

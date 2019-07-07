@@ -17,10 +17,10 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     
-    var item: RSSFeedItem! {
+    var item: FeedItem! {
         didSet {
             lblTitle.text = item.title
-            lblDate.text = item.pubDate?.toString(format: "E, d MMM yyyy HH:mm:ss")
+            lblDate.text = item.publicationDate
             lblDescription.text = item.description
         }
     }
